@@ -43,7 +43,7 @@ func dispatchItem(dynamoSession *dynamodb.DynamoDB, entry map[string]*dynamodb.A
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		logger.Warn("POST request to C-3PO failed", zap.Error(err))
+		logger.Warn(string(requestBody), zap.Error(err))
 		return err
 	}
 
